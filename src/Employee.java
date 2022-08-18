@@ -1,19 +1,20 @@
 public class Employee {
-    private String firstName;
-    private String middleName;
-    private String lastName;
+    private final String firstName;
+    private final String middleName;
+    private final String lastName;
     private int department;
     private int salary;
-    private int id;
+    private final int id;
+    private static int countID = 1;
 
-    public Employee(String firstName, String middleName, String lastName, int department, int salary, int id) {
+    public Employee(String firstName, String middleName, String lastName, int department, int salary) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.department = department;
         this.salary = salary;
-        this.id = id++;
-        Main.id++;
+        id = countID;
+        countID++;
     }
 
     @Override
@@ -28,44 +29,32 @@ public class Employee {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public int getDepartment() {
         return department;
     }
 
     public void setDepartment(int department) {
         this.department = department;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static int getCountID() {
+        return countID;
     }
 
     public int getSalary() {
